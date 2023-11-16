@@ -1,13 +1,13 @@
 import { Typography } from "@mui/material";
-
-const Home = () => {
+const Tareas = () => {
     return (
       <div>
         <Typography variant="h4" color="initial">
-          Home
+          Tareas
         </Typography>
+        
       </div>
     );
   }
   
-  export default Home;
+  export default Tareas;

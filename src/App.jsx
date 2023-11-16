@@ -15,6 +15,10 @@ const theme = createTheme({
       main: '#C0C0C0', // Cambia este color según tus preferencias
     },
   },
+  typography: {
+    fontFamily: 'Montserrat, sans-serif', // Reemplaza con tu fuente personalizada
+    // Puedes ajustar otros estilos de tipografía aquí
+  },
   // Otros ajustes de tema aquí
 });
 

@@ -1,13 +1,14 @@
 import { Typography } from "@mui/material";
-
-const Home = () => {
+import TablaProductos from "../components/tablaProductos";
+const Productos = () => {
     return (
       <div>
         <Typography variant="h4" color="initial">
-          Home
+          Productos
         </Typography>
+        <TablaProductos />
       </div>
     );
   }
   
-  export default Home;
+  export default Productos;
