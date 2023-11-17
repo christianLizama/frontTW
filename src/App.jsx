@@ -1,29 +1,48 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { useState } from 'react';
+import { RouterProvider } from "react-router-dom";
+import MyAppBar from './components/myAppBar';
+import MyDrawer from './components/myDrawer';
+import './App.css';
+import router from './router';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-import './App.css'
-import About from "./pages/about.jsx";
-import ErrorPage from "./pages/errorPage.jsx";
-
-let router = createBrowserRouter([
-  {
-    path: "/",
-    element: <></>,
-    errorElement: <ErrorPage />,
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#f9d25f', // Cambia este color según tus preferencias
+    },
+    secondary: {
+      main: '#C0C0C0', // Cambia este color según tus preferencias
+    },
   },
-  {
-    path: "/about",
-    element: <About />,
+  typography: {
+    fontFamily: 'Montserrat, sans-serif', // Reemplaza con tu fuente personalizada
+    // Puedes ajustar otros estilos de tipografía aquí
   },
-  
-]);
+  // Otros ajustes de tema aquí
+});
 
-export default function App() {
-  return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />;
+
+function App() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setIsDrawerOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setIsDrawerOpen(false);
+  };
+
+  return (
+    <ThemeProvider  theme={theme}>
+    <>
+      <MyAppBar handleDrawerOpen={handleDrawerOpen} />
+      <MyDrawer isOpen={isDrawerOpen} handleDrawerClose={handleDrawerClose} />
+      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+    </>
+    </ThemeProvider>
+  );
 }
 
-if (import.meta.hot) {
-  import.meta.hot.dispose(() => router.dispose());
-}
+export default App;
