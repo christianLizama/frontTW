@@ -6,6 +6,7 @@ import Productos from "./pages/productos.jsx";
 import Tareas from "./pages/tareas.jsx";
 import Informes from "./pages/informes.jsx";
 import Administracion from "./pages/administracion.jsx";
+import CrearProducto from "./pages/crearProducto.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/productos",
     element: <Productos />,
+  },
+  {
+    path: "/crearProducto",
+    element: <CrearProducto />,
   },
   {
     path: "/tareas",
