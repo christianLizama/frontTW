@@ -4,10 +4,14 @@ import MyAppBar from './components/myAppBar';
 import MyDrawer from './components/myDrawer';
 import './App.css';
 import router from './router';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme} from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
+    mode: 'light',
+    background: {
+      default: 'red', // Color de fondo oscuro predeterminado
+    },
     primary: {
       main: '#f9d25f', // Cambia este color según tus preferencias
     },
@@ -36,7 +40,7 @@ function App() {
 
   return (
     <ThemeProvider  theme={theme}>
-    <>
+    <>  
       <MyAppBar handleDrawerOpen={handleDrawerOpen} />
       <MyDrawer isOpen={isDrawerOpen} handleDrawerClose={handleDrawerClose} />
       <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
