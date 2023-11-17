@@ -1,4 +1,5 @@
 import { useRouteError } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -6,11 +7,15 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected sadasdasd has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+      <Typography variant="h4" color="initial">
+        Oops!
+      </Typography>
+      <Typography variant="body1" color="initial">
+        Sorry, an unexpected sadasdasd has occurred.
+      </Typography>
+      <Typography variant="body1" color="initial">
+        {error.statusText || error.message}
+      </Typography>
     </div>
   );
 }
